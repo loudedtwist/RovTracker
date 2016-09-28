@@ -7,9 +7,11 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import io.realm.Realm
+import io.realm.RealmConfiguration
 import org.jetbrains.anko.startActivity
 
-class MainActivity : AppCompatActivity() {
+class App : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +22,15 @@ class MainActivity : AppCompatActivity() {
         val fab = findViewById(R.id.fab) as FloatingActionButton
         fab.setOnClickListener { view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show() }
 
+        initDB()
+
         startActivity<MapActivity>();
+    }
+
+    private fun initDB() {
+        Realm.init(this)
+        val realmConfiguration = RealmConfiguration.Builder().build()
+        Realm.setDefaultConfiguration(realmConfiguration)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

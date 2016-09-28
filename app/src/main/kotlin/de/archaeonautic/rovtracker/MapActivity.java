@@ -16,10 +16,13 @@ import com.google.android.gms.maps.SupportMapFragment;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+import io.realm.Realm;
+
 public class MapActivity extends AppCompatActivity {
 
     private CheckBox mClickabilityCheckbox;
     IMap mapFramework;
+    Realm db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,13 @@ public class MapActivity extends AppCompatActivity {
 
         mapFramework = new GoogleMapAdapter((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map));
         mapFramework.onCreate();
+        db = Realm.getDefaultInstance();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        db.close();
     }
 
     private void initGuiElements() {
