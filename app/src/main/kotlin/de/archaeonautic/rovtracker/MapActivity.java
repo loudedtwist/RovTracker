@@ -12,6 +12,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+import de.archaeonautic.rovtracker.MapAdapters.GoogleMapAdapter;
+import de.archaeonautic.rovtracker.MapAdapters.IMap;
 import de.archaeonautic.rovtracker.Model.GeoPos;
 import de.archaeonautic.rovtracker.Model.Grid;
 import io.realm.Realm;
