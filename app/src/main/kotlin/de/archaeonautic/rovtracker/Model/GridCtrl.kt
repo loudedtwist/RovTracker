@@ -2,7 +2,7 @@ package de.archaeonautic.rovtracker.Model
 
 import java.util.*
 
-class Grid (pos : Array<GeoPos>){
+class GridCtrl(pos : Array<GeoPos>){
     var markerPos: MutableList<GeoPos> = ArrayList<GeoPos>()
 
     var gridCoords: MutableList<GeoPos> = ArrayList<GeoPos>()
