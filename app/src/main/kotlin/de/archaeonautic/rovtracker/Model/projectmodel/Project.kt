@@ -4,4 +4,6 @@ import io.realm.RealmList
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 
-class Project(@PrimaryKey val id : Int, val name : String, val locations : RealmList<Location>) : RealmObject()
+open class Project(@PrimaryKey var id : Int, var name : String, var locations : RealmList<Location>) : RealmObject() {
+    constructor() : this(0,"",RealmList<Location>())
+}

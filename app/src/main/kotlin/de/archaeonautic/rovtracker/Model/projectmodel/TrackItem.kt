@@ -2,6 +2,7 @@ package de.archaeonautic.rovtracker.Model.projectmodel
 
 import io.realm.RealmObject
 
-class TrackItem(val pos : GeoPos, val sat : Int, val hdop : Int, val time : String) : RealmObject() {
+open class TrackItem(var pos : GeoPos, var sat : Int, var hdop : Int, var time : String) : RealmObject() {
     //TODO time as Simple Date Format
+    constructor() : this(GeoPos(),0,0,"00:00:00")
 }

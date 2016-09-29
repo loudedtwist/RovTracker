@@ -3,7 +3,6 @@ package de.archaeonautic.rovtracker.Model.projectmodel
 import io.realm.RealmList
 import io.realm.RealmObject
 
-class Grid : RealmObject() {
-    var cellsize : Float = 0.0f
-    var hull : RealmList<GeoPos> = RealmList<GeoPos>()
+open class Grid(var cellsize: Float, var hull: RealmList<GeoPos>) : RealmObject() {
+    constructor() : this(0.0f, RealmList<GeoPos>())
 }
