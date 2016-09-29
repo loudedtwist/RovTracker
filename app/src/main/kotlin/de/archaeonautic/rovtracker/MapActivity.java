@@ -48,16 +48,16 @@ public class MapActivity extends AppCompatActivity {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public void toggleClickability(View view) {
-        mapFramework.addLocationTrackPos(64.99525f + ThreadLocalRandom.current().nextFloat()*10, 40.15247f + ThreadLocalRandom.current().nextFloat() * 10);
+        mapFramework.addLocationTrackPos(64.99525f + ThreadLocalRandom.current().nextFloat() * 10, 40.15247f + ThreadLocalRandom.current().nextFloat() * 10);
         mapFramework.insertGrid(new GridCtrl(getExamplePointsForMaker()));
     }
 
     private GeoPos[] getExamplePointsForMaker() {
         GeoPos[] geoPoses = new GeoPos[4];
-        geoPoses[0] = new GeoPos(64.99535f, 40.15217f );
-        geoPoses[1] = new GeoPos(63.99525f, 41.15237f );
-        geoPoses[2] = new GeoPos(62.99545f, 40.15247f );
-        geoPoses[3] = new GeoPos(61.99645f, 40.15447f );
+        geoPoses[0] = new GeoPos(64.99535, 40.15217);
+        geoPoses[1] = new GeoPos(63.99525, 41.15237);
+        geoPoses[2] = new GeoPos(62.99545, 40.15247);
+        geoPoses[3] = new GeoPos(61.99645, 40.15447);
         return geoPoses;
     }
 }
