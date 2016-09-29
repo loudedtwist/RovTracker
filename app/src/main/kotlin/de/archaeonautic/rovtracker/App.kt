@@ -9,7 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import org.jetbrains.anko.startActivity
 
-class MainActivity : AppCompatActivity() {
+class App : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
