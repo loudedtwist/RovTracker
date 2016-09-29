@@ -10,11 +10,12 @@ import android.widget.CheckBox;
 
 import com.example.mapdemo.MapAdapters.GoogleMapAdapter;
 import com.example.mapdemo.MapAdapters.IMap;
-import com.example.mapdemo.Model.GeoPos;
-import com.example.mapdemo.Model.Grid;
 import com.google.android.gms.maps.SupportMapFragment;
 
 import java.util.concurrent.ThreadLocalRandom;
+
+import de.archaeonautic.rovtracker.Model.GeoPos;
+import de.archaeonautic.rovtracker.Model.Grid;
 
 public class MapActivity extends AppCompatActivity {
 
