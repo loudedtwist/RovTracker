@@ -12,10 +12,10 @@ import com.google.android.gms.maps.SupportMapFragment;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-import de.archaeonautic.rovtracker.MapAdapters.GoogleMapAdapter;
-import de.archaeonautic.rovtracker.MapAdapters.IMap;
-import de.archaeonautic.rovtracker.Model.projectmodel.GeoPos;
-import de.archaeonautic.rovtracker.Model.GridCtrl;
+import de.archaeonautic.rovtracker.mapadapters.GoogleMapAdapter;
+import de.archaeonautic.rovtracker.mapadapters.IMap;
+import de.archaeonautic.rovtracker.model.projectmodel.GeoPos;
+import de.archaeonautic.rovtracker.model.GridCtrl;
 import io.realm.Realm;
 
 public class MapActivity extends AppCompatActivity {
