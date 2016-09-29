@@ -1,5 +1,6 @@
 package de.archaeonautic.rovtracker.Model
 
+import de.archaeonautic.rovtracker.Model.projectmodel.GeoPos
 import java.util.*
 
 class GridCtrl(pos : Array<GeoPos>){
@@ -11,17 +12,17 @@ class GridCtrl(pos : Array<GeoPos>){
         markerPos.addAll(pos)
     }
 
-    fun changePosOf(pos : GeoPos,index: Int) {
+    fun changePosOf(pos : GeoPos, index: Int) {
         if(index >= markerPos.size) return
         markerPos.set(index, pos)
         calcGrid()
     }
 
     private fun calcGrid() {
-        var minLat = markerPos.minBy { it.getLat() }
-        var maxLat = markerPos.maxBy { it.getLat() }
-        var minLng = markerPos.minBy { it.getLng() }
-        var maxLng = markerPos.maxBy { it.getLng() }
+        var minLat = markerPos.minBy { it.lat }
+        var maxLat = markerPos.maxBy { it.lat }
+        var minLng = markerPos.minBy { it.lng }
+        var maxLng = markerPos.maxBy { it.lng }
         if(minLat!=null) gridCoords.add(minLat)
         if(maxLat!=null) gridCoords.add(maxLat)
         if(minLng!=null) gridCoords.add(minLng)

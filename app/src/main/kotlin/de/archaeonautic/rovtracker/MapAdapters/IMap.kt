@@ -1,11 +1,11 @@
 package de.archaeonautic.rovtracker.MapAdapters
 
-import de.archaeonautic.rovtracker.Model.Grid
+import de.archaeonautic.rovtracker.Model.GridCtrl
 
 abstract class IMap {
-    var grid : Grid? = null
+    var gridCtrl: GridCtrl? = null
     abstract fun onCreate()
     abstract fun addLocationTrackPos(lat: Float, lng: Float)
-    abstract fun insertGrid(grid : Grid)
+    abstract fun insertGrid(gridCtrl: GridCtrl)
     abstract protected fun moveMarker()
 }

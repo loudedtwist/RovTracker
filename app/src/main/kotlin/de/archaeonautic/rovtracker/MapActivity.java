@@ -14,8 +14,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import de.archaeonautic.rovtracker.MapAdapters.GoogleMapAdapter;
 import de.archaeonautic.rovtracker.MapAdapters.IMap;
-import de.archaeonautic.rovtracker.Model.GeoPos;
-import de.archaeonautic.rovtracker.Model.Grid;
+import de.archaeonautic.rovtracker.Model.projectmodel.GeoPos;
+import de.archaeonautic.rovtracker.Model.GridCtrl;
 import io.realm.Realm;
 
 public class MapActivity extends AppCompatActivity {
@@ -49,7 +49,7 @@ public class MapActivity extends AppCompatActivity {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public void toggleClickability(View view) {
         mapFramework.addLocationTrackPos(64.99525f + ThreadLocalRandom.current().nextFloat()*10, 40.15247f + ThreadLocalRandom.current().nextFloat() * 10);
-        mapFramework.insertGrid(new Grid(getExamplePointsForMaker()));
+        mapFramework.insertGrid(new GridCtrl(getExamplePointsForMaker()));
     }
 
     private GeoPos[] getExamplePointsForMaker() {

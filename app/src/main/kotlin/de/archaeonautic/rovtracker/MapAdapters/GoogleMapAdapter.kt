@@ -6,22 +6,22 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
-import de.archaeonautic.rovtracker.Model.GeoPos
-import de.archaeonautic.rovtracker.Model.Grid
+import de.archaeonautic.rovtracker.Model.projectmodel.GeoPos
+import de.archaeonautic.rovtracker.Model.GridCtrl
 import de.archaeonautic.rovtracker.Model.LatLong
 import java.util.*
 
 
 class GoogleMapAdapter(var mapFragment: SupportMapFragment) : IMap(), OnMapReadyCallback {
 
-    override fun insertGrid(grid: Grid) {
-        this.grid = grid
+    override fun insertGrid(gridCtrl: GridCtrl) {
+        this.gridCtrl = gridCtrl
         if(map == null ) return;
-        initMarkers(grid)
+        initMarkers(gridCtrl)
     }
 
-    private fun initMarkers(grid: Grid) {
-        for (pos in grid.markerPos) {
+    private fun initMarkers(gridCtrl: GridCtrl) {
+        for (pos in gridCtrl.markerPos) {
             val marker = (map as GoogleMap).addMarker(MarkerOptions()
                     .position(pos.LatLong())
                     .draggable(true))
@@ -86,15 +86,15 @@ class GoogleMapAdapter(var mapFragment: SupportMapFragment) : IMap(), OnMapReady
         gMap.setOnMarkerDragListener(object: GoogleMap.OnMarkerDragListener {
             override fun onMarkerDragStart(arg0: Marker) {}
             override fun onMarkerDragEnd(marker: Marker) {
-                grid?.changePosOf(GeoPos(marker.position.latitude,marker.position.longitude),0)
+                gridCtrl?.changePosOf(GeoPos(marker.position.latitude,marker.position.longitude),0)
                 drawGrid()
                 gMap.animateCamera(CameraUpdateFactory.newLatLng(marker.getPosition()))
             }
 
             private fun drawGrid() {
-                if(grid == null) return
+                if(gridCtrl == null) return
                 val list = ArrayList<LatLng>()
-                for(pos in grid!!.gridCoords){
+                for(pos in gridCtrl!!.gridCoords){
                     list.add(pos.LatLong())
                 }
                 var gridPolyline = gMap
