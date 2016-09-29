@@ -8,7 +8,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
 import de.archaeonautic.rovtracker.Model.projectmodel.GeoPos
 import de.archaeonautic.rovtracker.Model.GridCtrl
-import de.archaeonautic.rovtracker.Model.LatLong
+import de.archaeonautic.rovtracker.Model.projectmodel.LatLong
 import java.util.*
 
 
