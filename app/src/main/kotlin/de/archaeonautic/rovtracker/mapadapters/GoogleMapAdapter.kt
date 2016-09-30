@@ -6,8 +6,8 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
-import de.archaeonautic.rovtracker.model.projectmodel.GeoPos
 import de.archaeonautic.rovtracker.model.GridCtrl
+import de.archaeonautic.rovtracker.model.projectmodel.GeoPos
 import de.archaeonautic.rovtracker.model.projectmodel.LatLong
 import java.util.*
 
