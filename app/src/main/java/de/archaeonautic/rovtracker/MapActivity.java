@@ -8,19 +8,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
 
-import com.example.mapdemo.MapAdapters.GoogleMapAdapter;
-import com.example.mapdemo.MapAdapters.IMap;
 import com.google.android.gms.maps.SupportMapFragment;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-import de.archaeonautic.rovtracker.Model.GeoPos;
-import de.archaeonautic.rovtracker.Model.Grid;
+import de.archaeonautic.rovtracker.mapadapters.GoogleMapAdapter;
+import de.archaeonautic.rovtracker.mapadapters.IMap;
+import de.archaeonautic.rovtracker.model.projectmodel.GeoPos;
+import de.archaeonautic.rovtracker.model.GridCtrl;
+import io.realm.Realm;
 
 public class MapActivity extends AppCompatActivity {
 
     private CheckBox mClickabilityCheckbox;
     IMap mapFramework;
+    Realm db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,13 @@ public class MapActivity extends AppCompatActivity {
 
         mapFramework = new GoogleMapAdapter((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map));
         mapFramework.onCreate();
+        db = Realm.getDefaultInstance();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        db.close();
     }
 
     private void initGuiElements() {
@@ -39,16 +48,16 @@ public class MapActivity extends AppCompatActivity {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public void toggleClickability(View view) {
-        mapFramework.addLocationTrackPos(64.99525f + ThreadLocalRandom.current().nextFloat()*10, 40.15247f + ThreadLocalRandom.current().nextFloat() * 10);
-        mapFramework.insertGrid(new Grid(getExamplePointsForMaker()));
+        mapFramework.addLocationTrackPos(64.99525f + ThreadLocalRandom.current().nextFloat() * 10, 40.15247f + ThreadLocalRandom.current().nextFloat() * 10);
+        mapFramework.insertGrid(new GridCtrl(getExamplePointsForMaker()));
     }
 
     private GeoPos[] getExamplePointsForMaker() {
         GeoPos[] geoPoses = new GeoPos[4];
-        geoPoses[0] = new GeoPos(64.99535f, 40.15217f );
-        geoPoses[1] = new GeoPos(63.99525f, 41.15237f );
-        geoPoses[2] = new GeoPos(62.99545f, 40.15247f );
-        geoPoses[3] = new GeoPos(61.99645f, 40.15447f );
+        geoPoses[0] = new GeoPos(64.99535, 40.15217);
+        geoPoses[1] = new GeoPos(63.99525, 41.15237);
+        geoPoses[2] = new GeoPos(62.99545, 40.15247);
+        geoPoses[3] = new GeoPos(61.99645, 40.15447);
         return geoPoses;
     }
 }

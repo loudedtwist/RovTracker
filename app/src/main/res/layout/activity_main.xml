@@ -22,6 +22,44 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="277dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"/>
+
+        <Button
+            android:text="Delete Realm DB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/deleteRealm"/>
+
+        <Button
+            android:text="Start Map Activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/startMapActivity"/>
+    </LinearLayout>
+
     <include layout="@layout/content_main"/>
 
     <android.support.design.widget.FloatingActionButton
