@@ -30,6 +30,7 @@ public class MapActivity extends AppCompatActivity implements ActivityCompat.OnR
 
         mapFramework = new GoogleMapAdapter((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map));
         mapFramework.onCreate();
+        enableLocationPermission();
         db = Realm.getDefaultInstance();
     }
 
