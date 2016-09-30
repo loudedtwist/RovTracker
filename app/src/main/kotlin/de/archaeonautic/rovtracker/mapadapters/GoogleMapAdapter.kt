@@ -48,7 +48,7 @@ class GoogleMapAdapter(var mapFragment: SupportMapFragment) : IMap,
     }
 
     override fun enableCurrentLocation() {
-        map?.setMyLocationEnabled(true)
+        map?.isMyLocationEnabled = true
         map?.setOnMyLocationButtonClickListener(this)
     }
 
