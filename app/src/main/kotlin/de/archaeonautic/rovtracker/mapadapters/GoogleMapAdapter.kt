@@ -44,6 +44,7 @@ class GoogleMapAdapter(var mapFragment: SupportMapFragment) : IMap,
     override fun onMapReady(gMap: GoogleMap) {
         map = gMap
         map?.setContentDescription("Google Map with polylines.")
+        enableCurrentLocation()
 
     }
 

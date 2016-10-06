@@ -24,13 +24,13 @@ public class MapActivity extends AppCompatActivity implements ActivityCompat.OnR
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.map);
 
+        setContentView(R.layout.map);
+        enableLocationPermission();
         initGuiElements();
 
         mapFramework = new GoogleMapAdapter((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map));
         mapFramework.onCreate();
-        enableLocationPermission();
         db = Realm.getDefaultInstance();
     }
 
@@ -48,8 +48,6 @@ public class MapActivity extends AppCompatActivity implements ActivityCompat.OnR
                 != PackageManager.PERMISSION_GRANTED) {
             PermissionUtils.requestPermission(this, LOCATION_PERMISSION_REQUEST_CODE,
                     Manifest.permission.ACCESS_FINE_LOCATION, true);
-        } else {
-            mapFramework.enableCurrentLocation();
         }
     }
 
