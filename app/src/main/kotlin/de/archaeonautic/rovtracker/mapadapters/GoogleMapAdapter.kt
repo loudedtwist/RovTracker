@@ -13,7 +13,7 @@ class GoogleMapAdapter(var mapFragment: SupportMapFragment) : IMap,
         GoogleMap.OnMyLocationButtonClickListener {
 
     private var map: GoogleMap? = null
-    private var trackPoints: MutableList<LatLng> = ArrayList<LatLng>()
+    private var trackPoints: MutableList<LatLng> = ArrayList()
     private var trackPolyline: Polyline? = null
 
     override var gridCtrl: GridCtrl?
