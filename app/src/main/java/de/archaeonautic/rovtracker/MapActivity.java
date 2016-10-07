@@ -1,34 +1,32 @@
-
 package de.archaeonautic.rovtracker;
 
-import android.annotation.TargetApi;
-import android.os.Build;
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.CheckBox;
 
 import com.google.android.gms.maps.SupportMapFragment;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 import de.archaeonautic.rovtracker.mapadapters.GoogleMapAdapter;
 import de.archaeonautic.rovtracker.mapadapters.IMap;
-import de.archaeonautic.rovtracker.model.projectmodel.GeoPos;
-import de.archaeonautic.rovtracker.model.GridCtrl;
 import io.realm.Realm;
 
-public class MapActivity extends AppCompatActivity {
+public class MapActivity extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
+    private boolean permissionDenied = false;
 
-    private CheckBox mClickabilityCheckbox;
     IMap mapFramework;
     Realm db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.polyline_demo);
 
+        setContentView(R.layout.map);
+        enableLocationPermission();
         initGuiElements();
 
         mapFramework = new GoogleMapAdapter((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map));
@@ -43,22 +41,43 @@ public class MapActivity extends AppCompatActivity {
     }
 
     private void initGuiElements() {
-        mClickabilityCheckbox = (CheckBox) findViewById(R.id.toggleClickability);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public void toggleClickability(View view) {
-        mapFramework.addLocationTrackPos(64.99525f + ThreadLocalRandom.current().nextFloat() * 10, 40.15247f + ThreadLocalRandom.current().nextFloat() * 10);
-        mapFramework.insertGrid(new GridCtrl(getExamplePointsForMaker()));
+    private void enableLocationPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            PermissionUtils.requestPermission(this, LOCATION_PERMISSION_REQUEST_CODE,
+                    Manifest.permission.ACCESS_FINE_LOCATION, true);
+        }
     }
 
-    private GeoPos[] getExamplePointsForMaker() {
-        GeoPos[] geoPoses = new GeoPos[4];
-        geoPoses[0] = new GeoPos(64.99535, 40.15217);
-        geoPoses[1] = new GeoPos(63.99525, 41.15237);
-        geoPoses[2] = new GeoPos(62.99545, 40.15247);
-        geoPoses[3] = new GeoPos(61.99645, 40.15447);
-        return geoPoses;
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        if (requestCode != LOCATION_PERMISSION_REQUEST_CODE) {
+            return;
+        }
+
+        if (PermissionUtils.isPermissionGranted(permissions, grantResults,
+                Manifest.permission.ACCESS_FINE_LOCATION)) {
+            enableLocationPermission();
+        } else {
+            permissionDenied = true;
+        }
+    }
+
+    @Override
+    protected void onResumeFragments() {
+        super.onResumeFragments();
+        if (permissionDenied) {
+            showMissingPermissionError();
+            permissionDenied = false;
+        }
+    }
+
+    private void showMissingPermissionError() {
+        PermissionUtils.PermissionDeniedDialog
+                .newInstance(true).show(getSupportFragmentManager(), "dialog");
     }
 }
 

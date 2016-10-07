@@ -27,7 +27,7 @@ class App() : AppCompatActivity() {
         val startActivityBtn : Button = findViewById(R.id.startMapActivity) as Button
         deleteRealmBtn = findViewById(R.id.deleteRealm) as Button
         startActivityBtn.onClick {
-            startActivity<MapActivity>();
+            startActivity<MapActivity>()
         }
         initDB()
 
