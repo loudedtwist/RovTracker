@@ -3,10 +3,10 @@ package de.archaeonautic.rovtracker.mapadapters
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.*
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Polyline
 import de.archaeonautic.rovtracker.model.GridCtrl
 import java.util.*
-
 
 class GoogleMapAdapter(var mapFragment: SupportMapFragment) : IMap,
         OnMapReadyCallback,
