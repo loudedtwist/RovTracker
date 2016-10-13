@@ -78,7 +78,7 @@ class Idle(recordAutomat: RecordAutomat) : State(recordAutomat) {
     }
 
     override fun getIcon(): String {
-        return "Play"
+        return "ic_record"
     }
     override fun ctrlPressed() {
         recordStatemachine.setState(recordStatemachine.getRecordingState())
@@ -91,7 +91,8 @@ class Recording(recordAutomat: RecordAutomat) : State(recordAutomat) {
     }
 
     override fun getIcon(): String {
-        return "Stop"
+        return "ic_save"
+        //return "Stop"
     }
 
     override fun ctrlPressed() {
@@ -105,7 +106,7 @@ class Paused(recordAutomat: RecordAutomat) : State(recordAutomat) {
     }
 
     override fun getIcon(): String {
-        return "Play"
+        return "ic_save"
     }
 
     override fun ctrlPressed() {
@@ -119,7 +120,7 @@ class Stopped(recordAutomat: RecordAutomat) : State(recordAutomat) {
         Log.e("ANTWORT", r.toString())
     }
     override fun getIcon(): String {
-        return "Go to Idle state"
+        return "ic_stopped"
     } // save on stop
     override fun ctrlPressed() {
         Log.e("ANTWORT", "")
