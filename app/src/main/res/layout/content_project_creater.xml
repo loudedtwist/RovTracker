@@ -20,25 +20,17 @@
             android:layout_weight="1"
             android:text="Project name" />
 
-        <Spinner
-            android:id="@+id/projectName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/editText"
+            <Spinner
+                android:id="@+id/projectName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.3"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="New name" />
+                android:layout_weight="0.3" />
 
             <Button
                 android:id="@+id/createProject"
@@ -56,24 +48,17 @@
             android:layout_weight="1"
             android:text="Project Location" />
 
-        <Spinner
-            android:id="@+id/place"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/newLocationInput"
+            <Spinner
+                android:id="@+id/place"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.3"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="new location" />
+                android:layout_weight="0.3"/>
 
             <Button
                 android:id="@+id/createNewLocation"
@@ -91,30 +76,22 @@
             android:layout_weight="1"
             android:text="Project Campaign" />
 
-        <Spinner
-            android:id="@+id/campaignList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/campaignDateInput"
-                android:layout_width="wrap_content"
+            <Spinner
+                android:id="@+id/campaignList"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.3"
-                android:ems="10"
-                android:inputType="date"
-                android:text="New Date" />
+                android:layout_weight="0.7"/>
 
             <Button
                 android:id="@+id/createNewCompaine"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
+                android:layout_weight="0.3"
                 android:text="Add Campaign" />
 
         </LinearLayout>
@@ -132,29 +109,22 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="choose pilot or create new one" />
-        <Spinner
-            android:id="@+id/pilotList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/PilotInput"
-                android:layout_width="wrap_content"
+            <Spinner
+                android:id="@+id/pilotList"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.3"
-                android:ems="10"
-                android:text="Pilot name" />
+                android:layout_weight="0.7"/>
 
             <Button
                 android:id="@+id/createPilot"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
+                android:layout_weight="0.3"
                 android:text="Add" />
         </LinearLayout>
 
@@ -194,18 +164,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Crete new dive" />
-
-        <Button
-            android:id="@+id/placeholder"
-            android:layout_width="match_parent"
-            android:layout_height="200px"
-            android:text="" />
-
-        <Button
-            android:id="@+id/placeholder2"
-            android:layout_width="match_parent"
-            android:layout_height="200px"
-            android:text="" />
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>
