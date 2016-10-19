@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="de.archaeonautic.rovtracker.MainActivity">
+    tools:context="de.archaeonautic.rovtracker.App">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -30,6 +30,25 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email"/>
+        app:srcCompat="@android:drawable/ic_input_add"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="Delete Realm DB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/deleteRealm"/>
+
+        <Button
+            android:text="Start Map Activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/startMapActivity"/>
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
