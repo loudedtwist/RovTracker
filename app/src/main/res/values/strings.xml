@@ -96,4 +96,10 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="lbl_project_campaign">Campaign</string>
+    <string name="lbl_project_name">Project</string>
+    <string name="btn_add">Add</string>
+    <string name="lbl_project_location">Location</string>
+    <string name="lbl_project_pilot">Pilot</string>
+    <string name="lbl_project_notes">Notes</string>
 </resources>
